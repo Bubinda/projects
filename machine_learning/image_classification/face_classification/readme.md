@@ -1,5 +1,3 @@
-![](ui_snapshot.jpg)
-
 In this data science and machine learning project, we classify sports personalities. We restrict classification to only 5 people,
 1) Maria Sharapova
 2) Serena Williams
@@ -24,4 +22,6 @@ Technologies used in this project,
 7. HTML/CSS/Javascript for UI
 
 
-Here is the video playlist for entire project: https://www.youtube.com/playlist?list=PLeo1K3hjS3uvaRHZLl-jLovIjBP14QTXc
+## Credit
+-----
+Idea and structure taken from https://github.com/codebasics
