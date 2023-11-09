@@ -27,3 +27,6 @@ To use the application, run the `main.py` file with the streamlit CLI (after hav
 streamlit run app.py
 ```
 
+## Credit
+-----
+Idea and structure taken from https://github.com/alejandro-ao

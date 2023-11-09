@@ -67,3 +67,8 @@ streamlit run main.py
 - langchain_helper.py: This has all the langchain code
 - requirements.txt: A list of required Python packages for the project.
 - .env: Configuration file for storing your Google API key.
+
+
+## Credit
+-----
+Idea and structure taken from https://github.com/codebasics

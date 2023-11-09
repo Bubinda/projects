@@ -52,7 +52,7 @@ cd ios && pod install && cd ../
 ## Training the Model
 
 1. Download the data from [kaggle](https://www.kaggle.com/arjuntejaswi/plant-village).
-2. Only keep folders related to Potatoes.
+2. Only keep folders related to Potatoes or Tomato.
 3. Run Jupyter Notebook in Browser.
 
 ```bash
@@ -209,4 +209,9 @@ gcloud functions deploy predict --runtime python38 --trigger-http --memory 512 -
 9. Use Postman to test the GCF using the [Trigger URL](https://cloud.google.com/functions/docs/calling/http).
 
 Inspiration: https://cloud.google.com/blog/products/ai-machine-learning/how-to-serve-deep-learning-models-using-tensorflow-2-0-with-cloud-functions
+
+
+## Credit
+-----
+Idea and structure taken from https://github.com/codebasics
 
