@@ -1,3 +1,4 @@
 langchain/basics/secret_key.py
 langchain/basics/RestaurantNameGenerator/secret_key.py
 langchain/basics/RestaurantNameGenerator/__pycache__/secret_key.cpython-39.pyc
+langchain/basics/__pycache__/secret_key.cpython-39.pyc
