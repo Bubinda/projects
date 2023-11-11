@@ -1,9 +1,9 @@
 model_config_list {
  config {
-    name: 'potatoes_model'
-    base_path: '/workspace/local-files/projects/plants-detection/potatoes_model'
+    name: 'potato_model'
+    base_path: '/potato_models/saved_models' 
     model_platform: 'tensorflow'
-    model_version_policy: {all: {}}
+    model_version_policy: {all: {}} 
         }
 }
 

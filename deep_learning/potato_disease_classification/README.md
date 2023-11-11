@@ -122,31 +122,6 @@ cd frontend
 npm run start
 ```
 
-## Running the app
-
-1. Get inside `mobile-app` folder
-
-```bash
-cd mobile-app
-```
-
-2. Copy the `.env.example` as `.env` and update `URL` to API URL if needed.
-
-3. Run the app (android/iOS)
-
-```bash
-npm run android
-```
-
-or
-
-```bash
-npm run ios
-```
-
-4. Creating public ([signed APK](https://reactnative.dev/docs/signed-apk-android))
-
-
 ## Creating the TF Lite Model
 
 1. Run Jupyter Notebook in Browser.

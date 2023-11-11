@@ -5,17 +5,17 @@ model_config_list {
         model_platform: 'tensorflow'
             model_version_policy {
                 specific {
-                    versions: 1
-                    versions: 2
+                    versions: model_4
+                    versions: tomato_model_5
                 }
             }
             version_labels {
                 key: 'production'
-                value: 1
+                value: model_4
             }
             version_labels {
                 kev: 'beta' 
-                value: 2
+                value: tomato_model_5
             }
     }
 }

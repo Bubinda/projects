@@ -10,7 +10,7 @@ output_index = None
 
 class_names = ["Early Blight", "Late Blight", "Healthy"]
 
-BUCKET_NAME = "codebasics-tf-models" # Here you need to put the name of your GCP bucket
+BUCKET_NAME = "potato-classification-tf-models" # Here you need to put the name of your GCP bucket
 
 
 def download_blob(bucket_name, source_blob_name, destination_file_name):
@@ -42,7 +42,7 @@ def predict(request):
 
     image = image/255 # normalize the image in 0 to 1 range
 
-    img_array = tf.expand_dims(img, 0)
+    img_array = tf.expand_dims(image, 0)
     predictions = model.predict(img_array)
 
     print("Predictions:",predictions)
