@@ -1,5 +1,5 @@
 
-# Codebasics Q&A: Question and Answer System Based on Google Palm LLM and Langchain for E-learning company  
+# Question and Answer System Based on Google Palm LLM and Langchain for E-learning company  
 
 This is an end to end LLM project based on Google Palm and Langchain. 
 
@@ -52,14 +52,6 @@ streamlit run main.py
 
 - Once knowledge base is created you will see a directory called faiss_index in your current folder
 
-- Now you are ready to ask questions. Type your question in Question box and hit Enter
-
-## Sample Questions
-  - Do you guys provide internship and also do you offer EMI payments?
-  - Do you have javascript course?
-  - Should I learn power bi or tableau?
-  - I've a MAC computer. Can I use powerbi on it?
-  - I don't see power pivot. how can I enable it?
 
 ## Project Structure
 
