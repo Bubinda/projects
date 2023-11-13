@@ -1,0 +1,113 @@
+CREATE TABLE `grocery_store`.`products` (
+  `product_id` INT NOT NULL AUTO_INCREMENT,
+  `product_name` VARCHAR(45) NOT NULL,
+  `unit_id` INT NOT NULL,
+  `price_per_unit` DOUBLE NOT NULL,
+  PRIMARY KEY (`product_id`));
+
+
+  CREATE TABLE `grocery_store`.`unit` (
+  `unit_id` INT NOT NULL AUTO_INCREMENT,
+  `unit_name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`unit_id`));
+
+
+INSERT INTO `grocery_store`.`unit` (`unit_id`, `unit_name`) VALUES ('1', 'each');
+INSERT INTO `grocery_store`.`unit` (`unit_id`, `unit_name`) VALUES ('2', 'each');
+
+
+INSERT INTO `grocery_store`.`products` (`product_id`, `product_name`, `unit_id`, `price_per_unit`) VALUES ('1', 'toothpaste', '1', '2');
+INSERT INTO `grocery_store`.`products` (`product_id`, `product_name`, `unit_id`, `price_per_unit`) VALUES ('2', 'bread', '1', '0.5');
+
+
+ALTER TABLE `grocery_store`.`products` 
+ADD INDEX `unit_id_idx` (`unit_id` ASC) VISIBLE;
+;
+ALTER TABLE `grocery_store`.`products` 
+ADD CONSTRAINT `fk_unit_id`
+  FOREIGN KEY (`unit_id`)
+  REFERENCES `grocery_store`.`unit` (`unit_id`)
+  ON DELETE NO ACTION
+  ON UPDATE RESTRICT;
+
+
+CREATE TABLE `grocery_store`.`customer` (
+  `customer_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`customer_id`));
+
+
+CREATE TABLE `grocery_store`.`orders` (
+  `order_id` INT NOT NULL AUTO_INCREMENT,
+  `date` DATETIME NOT NULL,
+  `customer_id` INT NOT NULL,
+  `total_cost` DOUBLE NOT NULL,
+  PRIMARY KEY (`order_id`),
+  INDEX `fk_sutomer_id_idx` (`customer_id` ASC) VISIBLE,
+  CONSTRAINT `fk_sutomer_id`
+    FOREIGN KEY (`customer_id`)
+    REFERENCES `grocery_store`.`customer` (`customer_id`)
+    ON DELETE NO ACTION
+    ON UPDATE RESTRICT);
+
+
+INSERT INTO `grocery_store`.`customer` (`customer_id`, `name`) VALUES ('1', 'paul');
+INSERT INTO `grocery_store`.`customer` (`customer_id`, `name`) VALUES ('2', 'tom');
+
+
+CREATE TABLE `grocery_store`.`order_details` (
+  `order_id` INT NOT NULL,
+  `quantity` DOUBLE NOT NULL,
+  `product_id` INT NOT NULL,
+  `total_price` DOUBLE NOT NULL,
+  PRIMARY KEY (`order_id`),
+  INDEX `fk_product_id_idx` (`product_id` ASC) VISIBLE,
+  CONSTRAINT `fk_order_id`
+    FOREIGN KEY (`order_id`)
+    REFERENCES `grocery_store`.`orders` (`order_id`)
+    ON DELETE NO ACTION
+    ON UPDATE RESTRICT,
+  CONSTRAINT `fk_product_id`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `grocery_store`.`products` (`product_id`)
+    ON DELETE NO ACTION
+    ON UPDATE RESTRICT);
+
+
+
+INSERT INTO `grocery_store`.`orders` (`order_id`, `date`, `customer_id`, `total_cost`) VALUES ('1', '20231113', '1', '4');
+
+
+INSERT INTO `grocery_store`.`order_details` (`order_id`, `quantity`, `product_id`, `total_price`) VALUES ('1', '2', '1', '4');
+
+
+-> at this point the order details, the products and the order table have to be droped because they already had the Fk set
+
+
+ALTER TABLE `grocery_store`.`products` 
+CHANGE COLUMN `product_id` `product_id` INT NOT NULL AUTO_INCREMENT ;
+
+
+ALTER TABLE `grocery_store`.`customer` 
+CHANGE COLUMN `customer_id` `customer_id` INT NOT NULL AUTO_INCREMENT ;
+
+
+ALTER TABLE `grocery_store`.`unit` 
+CHANGE COLUMN `unit_id` `unit_id` INT NOT NULL AUTO_INCREMENT ;
+
+
+
+-> now they can be recreated
+
+
+
+follwoing scripts are for the gathering of some specific rows
+
+
+
+SELECT products.product_id, products.product_name, products.unit_id, products.price_per_unit, unit.unit_name
+FROM products inner join unit 
+on products.unit_id= unit.unit_id;
+
+
+insert into products (product_name, unit_id, price_per_unit) values ("Apple", "1" , "2.5");
