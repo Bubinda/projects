@@ -12,8 +12,8 @@ app = Flask(__name__)
 connection = get_sql_connection()
 
 @app.route('/getUNIT', methods=['GET'])
-def get_uom():
-    response = unit_dao.get_uoms(connection)
+def get_unit():
+    response = unit_dao.get_unit(connection)
     response = jsonify(response)
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response

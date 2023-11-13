@@ -1,5 +1,5 @@
 
-def get_uoms(connection):
+def get_unit(connection):
     cursor = connection.cursor()
     query = ("select * from unit")
     cursor.execute(query)
@@ -17,4 +17,4 @@ if __name__ == '__main__':
 
     connection = get_sql_connection()
     # print(get_all_products(connection))
-    print(get_uoms(connection))
+    print(get_unit(connection))
