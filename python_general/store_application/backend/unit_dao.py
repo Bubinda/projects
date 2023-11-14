@@ -13,8 +13,8 @@ def get_unit(connection):
 
 
 if __name__ == '__main__':
-    from sql_connection import get_sql_connection
+    from sql_connection import establish_connection
 
-    connection = get_sql_connection()
-    # print(get_all_products(connection))
-    print(get_unit(connection))
+    connection = establish_connection()
+    # # print(get_all_products(connection))
+    # print(get_unit(connection))

@@ -21,15 +21,15 @@ def get_all_products(connection):
             {
                 'product_id': product_id,
                 'name': product_name,
-                'uom_id': unit_id,
+                'unit_id': unit_id,
                 'price_per_unit': price_per_unit,
-                'uom_name': unit_name
+                'unit_name': unit_name
             }
         )
         #print(product_id, product_name, unit_id, price_per_unit, unit_name)
 
 
-    connection.close()
+    #connection.close()
 
     return response
 
@@ -69,16 +69,16 @@ def delete_product(connection, product_id):
 
 if __name__ == "__main__":
     connection = establish_connection()
-    #print(get_all_products(connection=connection))
+    # #print(get_all_products(connection=connection))
 
-    product = {
-        'product_name': 'cabbage',
-        'unit_id': '1',
-        'price_per_unit': '3'
-    }
+    # product = {
+    #     'product_name': 'cabbage',
+    #     'unit_id': '1',
+    #     'price_per_unit': '3'
+    # }
 
-    #print(insert_new_product(connection=connection, product=product))
+    # #print(insert_new_product(connection=connection, product=product))
 
-    print(delete_product(connection, 4))
+    # print(delete_product(connection, 4))
 
-    close_connection()
+    # close_connection()

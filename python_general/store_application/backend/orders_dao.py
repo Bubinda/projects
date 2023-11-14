@@ -5,7 +5,7 @@ def insert_order(connection, order):
     cursor = connection.cursor()
 
     order_query = ("INSERT INTO orders "
-             "(date, cutomer_id, total_cost)"
+             "(date, customer_id, total_cost)"
              "VALUES (%s, %s, %s)")
     order_data = (datetime.now(),order['customer_id'], order['total_cost'], )
 
@@ -13,7 +13,7 @@ def insert_order(connection, order):
     order_id = cursor.lastrowid
 
     order_details_query = ("INSERT INTO order_details "
-                           "(order_id, quantity,product_id, total_price)"
+                           "(order_id, quantity, product_id, total_price)"
                            "VALUES (%s, %s, %s, %s)")
 
     order_details_data = []
@@ -66,7 +66,7 @@ def get_all_orders(connection):
         response.append({
             'order_id': order_id,
             'date': date,
-            'customer_is': customer_id,
+            'customer_id': customer_id,
             'total_cost': total_cost,
         })
 
@@ -80,24 +80,25 @@ def get_all_orders(connection):
 
 if __name__ == '__main__':
     connection = establish_connection()
-    print(get_all_orders(connection))
+    #print(get_all_orders(connection))
     # print(get_order_details(connection,4))
     # print(insert_order(connection, {
-    #     'customer_name': 'dhaval',
-    #     'total': '500',
-    #     'datetime': datetime.now(),
-    #     'order_details': [
-    #         {
-    #             'product_id': 1,
-    #             'quantity': 2,
-    #             'total_price': 50
-    #         },
-    #         {
-    #             'product_id': 3,
-    #             'quantity': 1,
-    #             'total_price': 30
-    #         }
-    #     ]
-    # }))
+    #     'date': datetime.now(),
+    #     'customer_id': '1',
+    #     'total_cost': '6',
 
-    close_connection()
+    #      'order_details': [
+    #          {
+    #              'product_id': 1,
+    #              'quantity': 2,
+    #              'total_price': 4
+    #          },
+    #          {
+    #              'product_id': 3,
+    #              'quantity': 1,
+    #              'total_price': 2.5
+    #          }
+    #      ]
+    #  }))
+
+    #close_connection()
