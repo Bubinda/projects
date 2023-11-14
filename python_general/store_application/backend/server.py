@@ -11,6 +11,15 @@ app = Flask(__name__)
 
 connection = establish_connection()
 
+# @app.route('/getOrders', methods=['GET'])
+# def get_orders():
+#     try:
+#         response = orders_dao.get_orders(connection)
+#         response = jsonify(response)
+#         response.headers.add('Access-Control-Allow-Origin', '*')
+#         return response
+#     except mysql.connector.Error as query_error:
+#         print(f"Query Error: {query_error}")
 
 @app.route('/getUNIT', methods=['GET'])
 def get_unit():

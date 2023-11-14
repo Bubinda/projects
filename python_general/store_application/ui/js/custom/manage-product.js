@@ -17,6 +17,53 @@ var productModal = $("#productModal");
         });
     });
 
+
+    // $(document).on("click", ".add-product", function (){
+    //     productModal.modal('show');
+    //     productModal.find('.modal-title').text('Add New Product');
+    // });
+
+    $(document).on("click", ".edit-product", function (){
+        var tr = $(this).closest('tr');
+        $("#id").val(tr.data('id'));
+        $("#name").val(tr.data('name'));
+        $("#unit").val(tr.data('unit'));
+        $("#price").val(tr.data('price'));
+        productModel.find('.modal-title').text('Edit Product');
+        productModal.modal('show');
+    });
+
+    // // Add Product
+    // $("#addProduct").on("click", function () {
+    //     productModal.modal('show');
+    //     productModal.find('.modal-title').text('Add New Product');
+    // });
+
+    // // Edit Product
+    // $(document).on("click", ".edit-product", function (){
+    //     var tr = $(this).closest('tr');
+    //     productModal.modal('show');
+    //     productModal.find('.modal-title').text('Edit Product');
+    //     $("#id").val(tr.data('id'));
+    //     $("#name").val(tr.data('name'));
+    //     $("#unit").val(tr.data('unit'));
+    //     $("#price").val(tr.data('price'));
+    // });
+
+    // Submit Product Form
+    $("#productForm").on("submit", function (e) {
+        e.preventDefault();
+        var data = $(this).serializeArray();
+        var requestPayload = {
+            product_name: null,
+            unit_id: null,
+            price_per_unit: null
+    }});
+
+
+
+
+
     // Save Product
     $("#saveProduct").on("click", function () {
         // If we found id value in form then update product detail
@@ -50,7 +97,7 @@ var productModal = $("#productModal");
         var data = {
             product_id : tr.data('id')
         };
-        var isDelete = confirm("Are you sure to delete "+ tr.data('name') +" item?");
+        var isDelete = confirm("Are you sure to delete the item: "+ tr.data('name') +"? \nWarning: \nIf this product is already enlisted in an order the product cannot be deleted until the corresponding order is also deleted!");
         if (isDelete) {
             callApi("POST", productDeleteApiUrl, data);
         }
