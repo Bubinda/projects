@@ -1,6 +1,6 @@
-numpy==1.23.5
-pandas==1.5.2
-pickle5==0.0.11
-plotly==5.18.0
-scikit_learn==1.2.0
-streamlit==1.30.0
+numpy==1.26.4
+pandas==2.2.3
+pillow==12.2.0
+plotly==6.8.0
+scikit_learn==1.5.0
+streamlit==1.54.0
